@@ -15,9 +15,6 @@ const LandingPage = ({ data }) => {
    
     const {contract} = useContract('0xBC6453EF4374bA4bC8d5CbCAF2b02C38D46Bfb75')
    
-  
-
-    console.log(contract)
 
 
     return (
