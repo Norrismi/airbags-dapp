@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { Web3Button } from '@thirdweb-dev/react'
+ //import MintButton from '../components/MintButton'
 import {useAddress, useMetamask, useDisconnect, useContract } from "@thirdweb-dev/react";
-import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image'
 
 
-const Home = ({ data }) => {
+const LandingPage = ({ data }) => {
     // Auth
     const connectWithMM = useMetamask();
     const address = useAddress();
     const disconnect = useDisconnect();
 
     const [connectedAddress, setConnectedAddress] = useState(false)
+
+   
     const {contract} = useContract('0xBC6453EF4374bA4bC8d5CbCAF2b02C38D46Bfb75')
-    const ErrorNotification = toast.error("Oops, an error occured")
+   
+  
 
-
-  // useEffect(() => {
-
-  // }, [input]);
-
-
-
-
+    console.log(contract)
 
 
     return (
@@ -56,7 +51,7 @@ const Home = ({ data }) => {
             <div className="flex flex-1 flex-col p-12  lg:col-span-6">
                 <header className=" flex items-center justify-between ">
                     <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
-                         <span className='font-extrabold underline decoration-pink-600/50'>Airbags</span> NFT Market Place
+                        The <span className='font-extrabold underline decoration-pink-600/50'>Airbags</span> NFT Market Place
                     </h1>
 
                     <button onClick={() => (address ? disconnect() : connectWithMM())} className="rounded-full bg-black text-white px-4 py-2 text-xs font-bold lg:px-5 lg:py-3 lg:text-base">
@@ -77,20 +72,8 @@ const Home = ({ data }) => {
                     <p className="pt-2 text-xl text-[#507dbc] ">12/21 NFTs Claimed</p>
                 </div>
 
-                {/* <button className="bg-black h-16 w-full p-2 text-white rounded-full mt-10 font-bold">Mint</button> */}
+                <button className="bg-black h-16 w-full p-2 text-white rounded-full mt-10 font-bold">Mint</button>
                 {/* <MintButton/> */}
-
-                {/* <Toaster
-                position='bottom-center'
-                /> */}
-
-                <Web3Button
-                 contractAddress='0xBC6453EF4374bA4bC8d5CbCAF2b02C38D46Bfb75' action={(contract) => { contract.erc721.claim(1) }}
-                 onSuccess={(result) => console.log("Success", result)}
-                 onError={(error) => ErrorNotification}
-                >
-                  Mint an Airbag
-                </Web3Button>
 
 
                 <div className="mint">
@@ -101,4 +84,4 @@ const Home = ({ data }) => {
     )
 }
 
-export default Home
+export default LandingPage
