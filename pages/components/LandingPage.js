@@ -12,6 +12,8 @@ const LandingPage = ({ data }) => {
 
     const [connectedAddress, setConnectedAddress] = useState(false)
 
+    //added
+
    
     const {contract} = useContract('0xBC6453EF4374bA4bC8d5CbCAF2b02C38D46Bfb75')
    
