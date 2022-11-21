@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Web3Button } from '@thirdweb-dev/react'
 import {useAddress, useMetamask, useDisconnect, useContract } from "@thirdweb-dev/react";
 import toast, { Toaster } from 'react-hot-toast';
-import Image from 'next/image'
 
 
 const Home = ({ data }) => {
@@ -14,15 +13,6 @@ const Home = ({ data }) => {
     const [connectedAddress, setConnectedAddress] = useState(false)
     const {contract} = useContract('0xBC6453EF4374bA4bC8d5CbCAF2b02C38D46Bfb75')
     const ErrorNotification = toast.error("Oops, an error occured")
-
-
-  // useEffect(() => {
-
-  // }, [input]);
-
-
-
-
 
 
     return (
